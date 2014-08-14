@@ -1,0 +1,481 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D37A8A1199D20F200BFE8CF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D37A8A0199D20F200BFE8CF /* Cocoa.framework */; };
+		3D37A8AB199D20F200BFE8CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D37A8A9199D20F200BFE8CF /* InfoPlist.strings */; };
+		3D37A8AD199D20F200BFE8CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D37A8AC199D20F200BFE8CF /* main.m */; };
+		3D37A8B1199D20F200BFE8CF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3D37A8AF199D20F200BFE8CF /* Credits.rtf */; };
+		3D37A8B4199D20F200BFE8CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D37A8B3199D20F200BFE8CF /* AppDelegate.m */; };
+		3D37A8B7199D20F200BFE8CF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D37A8B5199D20F200BFE8CF /* MainMenu.xib */; };
+		3D37A8B9199D20F200BFE8CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D37A8B8199D20F200BFE8CF /* Images.xcassets */; };
+		3D37A8C0199D20F200BFE8CF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D37A8BF199D20F200BFE8CF /* XCTest.framework */; };
+		3D37A8C1199D20F200BFE8CF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D37A8A0199D20F200BFE8CF /* Cocoa.framework */; };
+		3D37A8C9199D20F200BFE8CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D37A8C7199D20F200BFE8CF /* InfoPlist.strings */; };
+		3D37A8CB199D20F200BFE8CF /* BreakUpOnWhiteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D37A8CA199D20F200BFE8CF /* BreakUpOnWhiteTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3D37A8C2199D20F200BFE8CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D37A895199D20F200BFE8CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D37A89C199D20F200BFE8CF;
+			remoteInfo = BreakUpOnWhite;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3D37A89D199D20F200BFE8CF /* BreakUpOnWhite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakUpOnWhite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D37A8A0199D20F200BFE8CF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		3D37A8A3199D20F200BFE8CF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		3D37A8A4199D20F200BFE8CF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3D37A8A5199D20F200BFE8CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3D37A8A8199D20F200BFE8CF /* BreakUpOnWhite-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BreakUpOnWhite-Info.plist"; sourceTree = "<group>"; };
+		3D37A8AA199D20F200BFE8CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3D37A8AC199D20F200BFE8CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3D37A8AE199D20F200BFE8CF /* BreakUpOnWhite-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BreakUpOnWhite-Prefix.pch"; sourceTree = "<group>"; };
+		3D37A8B0199D20F200BFE8CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		3D37A8B2199D20F200BFE8CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3D37A8B3199D20F200BFE8CF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3D37A8B6199D20F200BFE8CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		3D37A8B8199D20F200BFE8CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3D37A8BE199D20F200BFE8CF /* BreakUpOnWhiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreakUpOnWhiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D37A8BF199D20F200BFE8CF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		3D37A8C6199D20F200BFE8CF /* BreakUpOnWhiteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BreakUpOnWhiteTests-Info.plist"; sourceTree = "<group>"; };
+		3D37A8C8199D20F200BFE8CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3D37A8CA199D20F200BFE8CF /* BreakUpOnWhiteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BreakUpOnWhiteTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3D37A89A199D20F200BFE8CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D37A8A1199D20F200BFE8CF /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D37A8BB199D20F200BFE8CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D37A8C1199D20F200BFE8CF /* Cocoa.framework in Frameworks */,
+				3D37A8C0199D20F200BFE8CF /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3D37A894199D20F200BFE8CF = {
+			isa = PBXGroup;
+			children = (
+				3D37A8A6199D20F200BFE8CF /* BreakUpOnWhite */,
+				3D37A8C4199D20F200BFE8CF /* BreakUpOnWhiteTests */,
+				3D37A89F199D20F200BFE8CF /* Frameworks */,
+				3D37A89E199D20F200BFE8CF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3D37A89E199D20F200BFE8CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D37A89D199D20F200BFE8CF /* BreakUpOnWhite.app */,
+				3D37A8BE199D20F200BFE8CF /* BreakUpOnWhiteTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3D37A89F199D20F200BFE8CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D37A8A0199D20F200BFE8CF /* Cocoa.framework */,
+				3D37A8BF199D20F200BFE8CF /* XCTest.framework */,
+				3D37A8A2199D20F200BFE8CF /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3D37A8A2199D20F200BFE8CF /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D37A8A3199D20F200BFE8CF /* AppKit.framework */,
+				3D37A8A4199D20F200BFE8CF /* CoreData.framework */,
+				3D37A8A5199D20F200BFE8CF /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		3D37A8A6199D20F200BFE8CF /* BreakUpOnWhite */ = {
+			isa = PBXGroup;
+			children = (
+				3D37A8B2199D20F200BFE8CF /* AppDelegate.h */,
+				3D37A8B3199D20F200BFE8CF /* AppDelegate.m */,
+				3D37A8B5199D20F200BFE8CF /* MainMenu.xib */,
+				3D37A8B8199D20F200BFE8CF /* Images.xcassets */,
+				3D37A8A7199D20F200BFE8CF /* Supporting Files */,
+			);
+			path = BreakUpOnWhite;
+			sourceTree = "<group>";
+		};
+		3D37A8A7199D20F200BFE8CF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3D37A8A8199D20F200BFE8CF /* BreakUpOnWhite-Info.plist */,
+				3D37A8A9199D20F200BFE8CF /* InfoPlist.strings */,
+				3D37A8AC199D20F200BFE8CF /* main.m */,
+				3D37A8AE199D20F200BFE8CF /* BreakUpOnWhite-Prefix.pch */,
+				3D37A8AF199D20F200BFE8CF /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3D37A8C4199D20F200BFE8CF /* BreakUpOnWhiteTests */ = {
+			isa = PBXGroup;
+			children = (
+				3D37A8CA199D20F200BFE8CF /* BreakUpOnWhiteTests.m */,
+				3D37A8C5199D20F200BFE8CF /* Supporting Files */,
+			);
+			path = BreakUpOnWhiteTests;
+			sourceTree = "<group>";
+		};
+		3D37A8C5199D20F200BFE8CF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3D37A8C6199D20F200BFE8CF /* BreakUpOnWhiteTests-Info.plist */,
+				3D37A8C7199D20F200BFE8CF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3D37A89C199D20F200BFE8CF /* BreakUpOnWhite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D37A8CE199D20F200BFE8CF /* Build configuration list for PBXNativeTarget "BreakUpOnWhite" */;
+			buildPhases = (
+				3D37A899199D20F200BFE8CF /* Sources */,
+				3D37A89A199D20F200BFE8CF /* Frameworks */,
+				3D37A89B199D20F200BFE8CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BreakUpOnWhite;
+			productName = BreakUpOnWhite;
+			productReference = 3D37A89D199D20F200BFE8CF /* BreakUpOnWhite.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3D37A8BD199D20F200BFE8CF /* BreakUpOnWhiteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D37A8D1199D20F200BFE8CF /* Build configuration list for PBXNativeTarget "BreakUpOnWhiteTests" */;
+			buildPhases = (
+				3D37A8BA199D20F200BFE8CF /* Sources */,
+				3D37A8BB199D20F200BFE8CF /* Frameworks */,
+				3D37A8BC199D20F200BFE8CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D37A8C3199D20F200BFE8CF /* PBXTargetDependency */,
+			);
+			name = BreakUpOnWhiteTests;
+			productName = BreakUpOnWhiteTests;
+			productReference = 3D37A8BE199D20F200BFE8CF /* BreakUpOnWhiteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3D37A895199D20F200BFE8CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = SilentLupin;
+				TargetAttributes = {
+					3D37A8BD199D20F200BFE8CF = {
+						TestTargetID = 3D37A89C199D20F200BFE8CF;
+					};
+				};
+			};
+			buildConfigurationList = 3D37A898199D20F200BFE8CF /* Build configuration list for PBXProject "BreakUpOnWhite" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3D37A894199D20F200BFE8CF;
+			productRefGroup = 3D37A89E199D20F200BFE8CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3D37A89C199D20F200BFE8CF /* BreakUpOnWhite */,
+				3D37A8BD199D20F200BFE8CF /* BreakUpOnWhiteTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3D37A89B199D20F200BFE8CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D37A8AB199D20F200BFE8CF /* InfoPlist.strings in Resources */,
+				3D37A8B9199D20F200BFE8CF /* Images.xcassets in Resources */,
+				3D37A8B1199D20F200BFE8CF /* Credits.rtf in Resources */,
+				3D37A8B7199D20F200BFE8CF /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D37A8BC199D20F200BFE8CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D37A8C9199D20F200BFE8CF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3D37A899199D20F200BFE8CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D37A8B4199D20F200BFE8CF /* AppDelegate.m in Sources */,
+				3D37A8AD199D20F200BFE8CF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D37A8BA199D20F200BFE8CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D37A8CB199D20F200BFE8CF /* BreakUpOnWhiteTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3D37A8C3199D20F200BFE8CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D37A89C199D20F200BFE8CF /* BreakUpOnWhite */;
+			targetProxy = 3D37A8C2199D20F200BFE8CF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3D37A8A9199D20F200BFE8CF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D37A8AA199D20F200BFE8CF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3D37A8AF199D20F200BFE8CF /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D37A8B0199D20F200BFE8CF /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		3D37A8B5199D20F200BFE8CF /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D37A8B6199D20F200BFE8CF /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		3D37A8C7199D20F200BFE8CF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D37A8C8199D20F200BFE8CF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3D37A8CC199D20F200BFE8CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3D37A8CD199D20F200BFE8CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3D37A8CF199D20F200BFE8CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BreakUpOnWhite/BreakUpOnWhite-Prefix.pch";
+				INFOPLIST_FILE = "BreakUpOnWhite/BreakUpOnWhite-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3D37A8D0199D20F200BFE8CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BreakUpOnWhite/BreakUpOnWhite-Prefix.pch";
+				INFOPLIST_FILE = "BreakUpOnWhite/BreakUpOnWhite-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		3D37A8D2199D20F200BFE8CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BreakUpOnWhite.app/Contents/MacOS/BreakUpOnWhite";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BreakUpOnWhite/BreakUpOnWhite-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BreakUpOnWhiteTests/BreakUpOnWhiteTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		3D37A8D3199D20F200BFE8CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BreakUpOnWhite.app/Contents/MacOS/BreakUpOnWhite";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BreakUpOnWhite/BreakUpOnWhite-Prefix.pch";
+				INFOPLIST_FILE = "BreakUpOnWhiteTests/BreakUpOnWhiteTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3D37A898199D20F200BFE8CF /* Build configuration list for PBXProject "BreakUpOnWhite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D37A8CC199D20F200BFE8CF /* Debug */,
+				3D37A8CD199D20F200BFE8CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D37A8CE199D20F200BFE8CF /* Build configuration list for PBXNativeTarget "BreakUpOnWhite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D37A8CF199D20F200BFE8CF /* Debug */,
+				3D37A8D0199D20F200BFE8CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3D37A8D1199D20F200BFE8CF /* Build configuration list for PBXNativeTarget "BreakUpOnWhiteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D37A8D2199D20F200BFE8CF /* Debug */,
+				3D37A8D3199D20F200BFE8CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3D37A895199D20F200BFE8CF /* Project object */;
+}
