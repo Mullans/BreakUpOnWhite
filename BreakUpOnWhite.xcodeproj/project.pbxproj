@@ -19,6 +19,7 @@
 		3D37A8C9199D20F200BFE8CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D37A8C7199D20F200BFE8CF /* InfoPlist.strings */; };
 		3D37A8CB199D20F200BFE8CF /* BreakUpOnWhiteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D37A8CA199D20F200BFE8CF /* BreakUpOnWhiteTests.m */; };
 		3D7CAF6C199D5EF90003B08F /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7CAF6B199D5EF90003B08F /* Document.m */; };
+		3DCD41A719A296A20078FF68 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 3DCD41A619A296A20078FF68 /* README */; };
 		3DD6028C19A2616F00152A87 /* Sorter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD6028B19A2616F00152A87 /* Sorter.m */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		3D37A8CA199D20F200BFE8CF /* BreakUpOnWhiteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BreakUpOnWhiteTests.m; sourceTree = "<group>"; };
 		3D7CAF6A199D5EF90003B08F /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
 		3D7CAF6B199D5EF90003B08F /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
+		3DCD41A619A296A20078FF68 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		3DD6028A19A2616F00152A87 /* Sorter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sorter.h; sourceTree = "<group>"; };
 		3DD6028B19A2616F00152A87 /* Sorter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sorter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +127,7 @@
 				3D7CAF6B199D5EF90003B08F /* Document.m */,
 				3D37A8B2199D20F200BFE8CF /* AppDelegate.h */,
 				3D37A8B3199D20F200BFE8CF /* AppDelegate.m */,
+				3DCD41A619A296A20078FF68 /* README */,
 				3DD6028A19A2616F00152A87 /* Sorter.h */,
 				3DD6028B19A2616F00152A87 /* Sorter.m */,
 				3D37A8B5199D20F200BFE8CF /* MainMenu.xib */,
@@ -240,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DCD41A719A296A20078FF68 /* README in Resources */,
 				3D37A8AB199D20F200BFE8CF /* InfoPlist.strings in Resources */,
 				3D37A8B9199D20F200BFE8CF /* Images.xcassets in Resources */,
 				3D37A8B1199D20F200BFE8CF /* Credits.rtf in Resources */,
