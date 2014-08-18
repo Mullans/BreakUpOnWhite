@@ -7,7 +7,7 @@
 //
 
 #import "Document.h"
-
+#define WHITE_THRESHOLD 253
 @implementation Document
 -(id)initWithCopy:(NSURL *)input{
     copy = input;
@@ -41,7 +41,6 @@
     NSData *imageData = [image TIFFRepresentation];
     CFDataRef imageDataRef = (__bridge CFDataRef)(imageData);
     const UInt8 *pixels = CFDataGetBytePtr(imageDataRef);
-    UInt8 blackThreshold = 245; // or some value close to 0
     int bytesPerPixel = 4;
     long unsigned int redTotal = 0;
     long unsigned int greenTotal = 0;
@@ -53,9 +52,7 @@
             UInt8 redVal = pixels[pixelStartIndex + 1];
             UInt8 greenVal = pixels[pixelStartIndex + 2];
             UInt8 blueVal = pixels[pixelStartIndex + 3];
-            if(redVal < blackThreshold && blueVal < blackThreshold && greenVal < blackThreshold) {
-                //This pixel is close to black...do something with it
-            }
+            
             redTotal+=redVal;
             greenTotal+=greenVal;
             blueTotal+=blueVal;
@@ -65,7 +62,7 @@
     redTotal = redTotal/total;
     greenTotal = greenTotal/total;
     blueTotal = blueTotal/total;
-    if ((redTotal+blueTotal+greenTotal)/3 > 253){
+    if ((redTotal+blueTotal+greenTotal)/3 > WHITE_THRESHOLD){
         originalSize = @"Blank Page";
     }
     //max 255
@@ -107,7 +104,6 @@
     NSData *imageData = [image TIFFRepresentation];
     CFDataRef imageDataRef = (__bridge CFDataRef)(imageData);
     const UInt8 *pixels = CFDataGetBytePtr(imageDataRef);
-    UInt8 blackThreshold = 245; // or some value close to 0
     int bytesPerPixel = 4;
     long unsigned int redTotal = 0;
     long unsigned int greenTotal = 0;
@@ -119,9 +115,6 @@
             UInt8 redVal = pixels[pixelStartIndex + 1];
             UInt8 greenVal = pixels[pixelStartIndex + 2];
             UInt8 blueVal = pixels[pixelStartIndex + 3];
-            if(redVal < blackThreshold && blueVal < blackThreshold && greenVal < blackThreshold) {
-                //This pixel is close to black...do something with it
-            }
             redTotal+=redVal;
             greenTotal+=greenVal;
             blueTotal+=blueVal;
@@ -131,7 +124,7 @@
     redTotal = redTotal/total;
     greenTotal = greenTotal/total;
     blueTotal = blueTotal/total;
-    if ((redTotal+blueTotal+greenTotal)/3 > 253){
+    if ((redTotal+blueTotal+greenTotal)/3 > WHITE_THRESHOLD){
         originalSize = @"Blank Page";
     }
     //max 255

@@ -1,1 +1,2 @@
 This is a OSX app to compare a set of .jpgs with a set of .tifs, and to then split them into folders based on white images. There are a couple options for sorting, and the files will be split based on the sorted list. The sorting itself is done with a basic merge sort. 
+To change the whiteness threshold, change the value at the top of the Document.m file.

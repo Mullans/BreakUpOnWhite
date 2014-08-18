@@ -208,14 +208,8 @@
         NSLog(@"%@",[[panel URL]path]);
         for(Document* doc in _documentArray){
             NSString *sizeString = [doc getOriginalSize];
-            @try{
-                
-            }
-            @catch(NSException* exception){
-                
-            }
-            if([doc getOriginalSize]){
-                
+            if([sizeString isEqualTo:@"Blank Page"]){
+                NSLog(@"Blank Page");
             }
         }
     }
