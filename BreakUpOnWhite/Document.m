@@ -35,6 +35,41 @@
     }else{
         originalSize = [NSString stringWithFormat:@"%.1fKB",result/1000.0];
     }
+    
+    //Checks to see if the image is white or not
+    NSImage *image = [[NSImage alloc]initWithContentsOfURL:input];
+    NSData *imageData = [image TIFFRepresentation];
+    CFDataRef imageDataRef = (__bridge CFDataRef)(imageData);
+    const UInt8 *pixels = CFDataGetBytePtr(imageDataRef);
+    UInt8 blackThreshold = 245; // or some value close to 0
+    int bytesPerPixel = 4;
+    long unsigned int redTotal = 0;
+    long unsigned int greenTotal = 0;
+    long unsigned int blueTotal = 0;
+    long unsigned int total = 0;
+    for(int x = 0; x < image.size.width; x++) {
+        for(int y = 0; y < image.size.height; y++) {
+            int pixelStartIndex = (x + (y * image.size.width)) * bytesPerPixel;
+            UInt8 redVal = pixels[pixelStartIndex + 1];
+            UInt8 greenVal = pixels[pixelStartIndex + 2];
+            UInt8 blueVal = pixels[pixelStartIndex + 3];
+            if(redVal < blackThreshold && blueVal < blackThreshold && greenVal < blackThreshold) {
+                //This pixel is close to black...do something with it
+            }
+            redTotal+=redVal;
+            greenTotal+=greenVal;
+            blueTotal+=blueVal;
+            total+=1;
+        }
+    }
+    redTotal = redTotal/total;
+    greenTotal = greenTotal/total;
+    blueTotal = blueTotal/total;
+    if ((redTotal+blueTotal+greenTotal)/3 > 253){
+        originalSize = @"Blank Page";
+    }
+    //max 255
+    
     return self;
 }
 -(NSURL *)getCopy{
@@ -66,6 +101,41 @@
     }else{
         originalSize = [NSString stringWithFormat:@"%.1fKB",result/1000.0];
     }
+    
+    //Checks to see if the image is white or not
+    NSImage *image = [[NSImage alloc]initWithContentsOfURL:input];
+    NSData *imageData = [image TIFFRepresentation];
+    CFDataRef imageDataRef = (__bridge CFDataRef)(imageData);
+    const UInt8 *pixels = CFDataGetBytePtr(imageDataRef);
+    UInt8 blackThreshold = 245; // or some value close to 0
+    int bytesPerPixel = 4;
+    long unsigned int redTotal = 0;
+    long unsigned int greenTotal = 0;
+    long unsigned int blueTotal = 0;
+    long unsigned int total = 0;
+    for(int x = 0; x < image.size.width; x++) {
+        for(int y = 0; y < image.size.height; y++) {
+            int pixelStartIndex = (x + (y * image.size.width)) * bytesPerPixel;
+            UInt8 redVal = pixels[pixelStartIndex + 1];
+            UInt8 greenVal = pixels[pixelStartIndex + 2];
+            UInt8 blueVal = pixels[pixelStartIndex + 3];
+            if(redVal < blackThreshold && blueVal < blackThreshold && greenVal < blackThreshold) {
+                //This pixel is close to black...do something with it
+            }
+            redTotal+=redVal;
+            greenTotal+=greenVal;
+            blueTotal+=blueVal;
+            total+=1;
+        }
+    }
+    redTotal = redTotal/total;
+    greenTotal = greenTotal/total;
+    blueTotal = blueTotal/total;
+    if ((redTotal+blueTotal+greenTotal)/3 > 253){
+        originalSize = @"Blank Page";
+    }
+    //max 255
+    
     original = input;
 }
 -(NSString *)getOriginalSize{

@@ -197,24 +197,27 @@
     return YES;
 }
 
--(NSMutableArray*)sortDocArray:(NSMutableArray *)input{
-    NSMutableArray *returnArray = [[NSMutableArray alloc]initWithCapacity:10];
-    for (Document* doc in input){
-        
-    }
-    return returnArray;
-}
 - (IBAction)splitButton:(id)sender {
     //iterate through _documentArray, looking for blank files (low numbers), and create new folders after each one
-    _documentArray;
     NSSavePanel *panel = [NSSavePanel savePanel];
     [panel setTitle:@"Choose Folder To Save To"];
     [panel canCreateDirectories];
-    [panel ]
     NSInteger clicked = [panel runModal];
     //This runs if the ok button was clicked on the open panel.
     if (clicked == NSFileHandlingPanelOKButton) {
         NSLog(@"%@",[[panel URL]path]);
+        for(Document* doc in _documentArray){
+            NSString *sizeString = [doc getOriginalSize];
+            @try{
+                
+            }
+            @catch(NSException* exception){
+                
+            }
+            if([doc getOriginalSize]){
+                
+            }
+        }
     }
 }
 @end
