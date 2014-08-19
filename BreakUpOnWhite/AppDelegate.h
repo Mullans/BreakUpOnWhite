@@ -11,7 +11,6 @@
 #import "Sorter.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate,NSTableViewDataSource,NSTableViewDelegate>
-@property (weak) IBOutlet NSTextField *buttonLabel2;
 @property (weak) IBOutlet NSTextField *buttonLabel1;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (strong) NSMutableArray *documentArray;
@@ -21,5 +20,6 @@
 @property (weak) IBOutlet NSScrollView *scrollView;
 @property (weak) IBOutlet NSTextField *jpgCount;
 @property (weak) IBOutlet NSPopUpButton *sortChoice;
+@property (weak) IBOutlet NSProgressIndicator *progress;
 
 @end

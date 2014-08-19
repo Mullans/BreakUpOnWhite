@@ -10,8 +10,8 @@
 @implementation AppDelegate
 - (IBAction)loadingButton1:(id)sender {
     NSOpenPanel *panel = [NSOpenPanel openPanel];
-    [panel setTitle:@"Choose jpg folder"];
-    NSArray  *fileTypes = [NSArray arrayWithObjects:@"jpg",nil];
+    [panel setTitle:@"Choose tif folder"];
+    NSArray  *fileTypes = [NSArray arrayWithObjects:@"tif",nil];
     [panel setCanChooseFiles:NO];
     [panel setCanChooseDirectories:YES];
     [panel setAllowsMultipleSelection:NO];
@@ -20,38 +20,23 @@
     
     NSInteger clicked = [panel runModal];
     //This runs if the ok button was clicked on the open panel.
+    [_progress startAnimation:self];
     if (clicked == NSFileHandlingPanelOKButton) {
         
         //This section sets and resizes the label to reflect the users choice.
         [_buttonLabel1  setStringValue:[[panel URL]path]];
         [_buttonLabel1 sizeToFit];
-        [_buttonLabel1 setFrameOrigin:CGPointMake(self.window.frame.size.width*.25-_buttonLabel1.frame.size.width/2, _buttonLabel1.frame.origin.y)];
+        [_buttonLabel1 setFrameOrigin:CGPointMake(self.window.frame.size.width/2-_buttonLabel1.frame.size.width/2, _buttonLabel1.frame.origin.y)];
         
         //This gets all of the files from the selected directory, and skips hidden files.
         NSArray* dirs = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:[panel URL] includingPropertiesForKeys:[NSArray arrayWithObject:NSURLNameKey] options:NSDirectoryEnumerationSkipsHiddenFiles error:nil];
         for(NSURL* item in dirs){
             //check to see if there is a document of the same name in original
             BOOL sentinel = YES;
-            if (![[item pathExtension] isEqual:@"jpg"]){
+            if (![[item pathExtension] isEqual:@"tif"]){
                 continue;
             }
             for(Document *doc in _documentArray){
-                @try{
-                    if([[[item lastPathComponent]stringByDeletingPathExtension] isEqualToString:[[[doc getCopy]lastPathComponent]stringByDeletingPathExtension]]){
-                        [doc setOriginal:item];
-                        sentinel = NO;
-                        break;
-                    }
-//                    }else if([[item path] isEqualToString:[[doc getCopy]path] ]){
-//                        //This section prevents the same file from being uploaded multiple times
-//                        //This does not mean that files of the same name, but in a different name will be excluded though.
-//                        sentinel = NO;
-                }
-                @catch(NSException *exception){
-                    NSLog(@"\n:::%@\n:::::%@",[doc getCopy],item);
-                    
-                    NSLog(@"Error 1");
-                }
                 @try{
                     if([[item path] isEqualToString:[[doc getOriginal]path]]){
                         sentinel = NO;
@@ -70,70 +55,8 @@
     _jpgCount.stringValue = [NSString stringWithFormat:@"%lu Images",(unsigned long)[_documentArray count]];
     _documentArray = [[NSMutableArray alloc]initWithArray:[Sorter mergeSort:_documentArray options:_sortChoice.indexOfSelectedItem]];
     [_tableView reloadData];
+    [_progress stopAnimation:self];
 }
-- (IBAction)loadingButton2:(id)sender {
-    NSOpenPanel *panel = [NSOpenPanel openPanel];
-    [panel setTitle:@"Choose tif folder"];
-    NSArray  *fileTypes = [NSArray arrayWithObjects:@"tif",nil];
-    [panel setCanChooseFiles:NO];
-    [panel setCanChooseDirectories:YES];
-    [panel setAllowsMultipleSelection:NO];
-    [panel setAllowedFileTypes:fileTypes];
-    
-    
-    NSInteger clicked = [panel runModal];
-    //This runs if the ok button was clicked on the open panel.
-    if (clicked == NSFileHandlingPanelOKButton) {
-        
-        //This section sets and resizes the label to reflect the users choice.
-        [_buttonLabel2  setStringValue:[[panel URL]path]];
-        [_buttonLabel2 sizeToFit];
-        [_buttonLabel2 setFrameOrigin:CGPointMake(self.window.frame.size.width*.75-_buttonLabel2.frame.size.width/2, _buttonLabel2.frame.origin.y)];
-        
-        //This gets all of the files from the selected directory, and skips hidden files.
-        NSArray* dirs = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:[panel URL] includingPropertiesForKeys:[NSArray arrayWithObject:NSURLNameKey] options:NSDirectoryEnumerationSkipsHiddenFiles error:nil];
-        for(NSURL* item in dirs){
-            //check to see if there is a document of the same name in original
-            BOOL sentinel = YES;
-            if (![[item pathExtension] isEqual:@"tif"]){
-                continue;
-            }
-            for(Document *doc in _documentArray){
-                @try{
-                    if([[[item lastPathComponent]stringByDeletingPathExtension] isEqualToString:[[[doc getOriginal]lastPathComponent]stringByDeletingPathExtension]]){
-                        [doc setCopy:item];
-                        sentinel = NO;
-                        break;
-                    }
-                    //                    }else if([[item path] isEqualToString:[[doc getCopy]path] ]){
-                    //                        //This section prevents the same file from being uploaded multiple times
-                    //                        //This does not mean that files of the same name, but in a different name will be excluded though.
-                    //                        sentinel = NO;
-                }
-                @catch(NSException *exception){
-                    NSLog(@"\n:::%@\n:::::%@",[doc getOriginal],item);
-                    
-                    NSLog(@"Error 1");
-                }
-                @try{
-                    if([[item path] isEqualToString:[[doc getCopy]path]]){
-                        sentinel = NO;
-                        break;
-                    }
-                }@catch(NSException *exception){
-                    NSLog(@"Error 2");
-                }
-            }
-            if (sentinel){
-                Document *newDocument = [[Document alloc]initWithCopy:item];
-                [_documentArray addObject:newDocument];
-            }
-        }
-    }
-    _documentArray = [[NSMutableArray alloc]initWithArray:[Sorter mergeSort:_documentArray options:_sortChoice.indexOfSelectedItem]];
-    [_tableView reloadData];
-}
-
 
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
@@ -163,21 +86,15 @@
     Document *newDocument = [_documentArray objectAtIndex:row];
     if ([tableColumn.identifier isEqual:@"1"]){
         result.textField.stringValue = [[newDocument getOriginal]lastPathComponent];
-    }else if([tableColumn.identifier isEqual:@"3"]){
-        result.textField.stringValue = [[newDocument getCopy]lastPathComponent];
     }else if([tableColumn.identifier isEqual:@"2"]){
         result.textField.stringValue = [newDocument getOriginalSize];
-        result.textField.alignment = NSRightTextAlignment;
-    }else if([tableColumn.identifier isEqual:@"4"]){
-        result.textField.stringValue = [newDocument getCopySize];
-//        NSLog(@"%@",result.textField.stringValue);
         result.textField.alignment = NSRightTextAlignment;
     }
     if ([result.textField.stringValue isEqualTo:@"Missing File"]){
         [result setBackgroundStyle:NSBackgroundStyleDark];
         [result.textField setTextColor:[NSColor redColor]];
     }
-    if ([result.textField.stringValue rangeOfString:@"K"].location != NSNotFound) {
+    if ([result.textField.stringValue rangeOfString:@"K"].location != NSNotFound||[result.textField.stringValue isEqualTo:@"Blank Page"]) {
         [result.textField setTextColor:[NSColor blueColor]];
     }
     return result;

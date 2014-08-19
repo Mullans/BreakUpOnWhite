@@ -10,17 +10,10 @@
 
 @interface Document : NSObject{
     NSURL *original;
-    NSURL *copy;
     NSString* originalSize;
-    NSString* copySize;
 }
 
 -(id)initWithOriginal:(NSURL*)input;
--(id)initWithCopy:(NSURL*)input;
 -(NSURL*)getOriginal;
--(NSURL*)getCopy;
--(void)setCopy:(NSURL*)input;
--(void)setOriginal:(NSURL*)input;
 -(NSString*)getOriginalSize;
--(NSString*)getCopySize;
 @end
