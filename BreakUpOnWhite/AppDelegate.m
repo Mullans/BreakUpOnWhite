@@ -213,15 +213,42 @@
             [[newFiles objectAtIndex:index]addObject:doc];
             NSString *sizeString = [doc getOriginalSize];
             if([sizeString isEqualTo:@"Blank Page"]){
-                NSLog(@"Blank Page");
                 index++;
                 [newFiles addObject:[[NSMutableArray alloc]initWithCapacity:10]];
             }
         }
-//        //newFiles is the mainFile
-//        for (NSMutableArray *folder in newFiles){
-//            
-//        }
+        NSURL *newlocation = [panel URL];
+        BOOL isDir;
+        NSFileManager *fileManager= [NSFileManager defaultManager];
+        if(![fileManager fileExistsAtPath:[newlocation path] isDirectory:&isDir])
+            if(![fileManager createDirectoryAtPath:[newlocation path] withIntermediateDirectories:YES attributes:nil error:NULL])
+                NSLog(@"Error: Create folder failed %@", [newlocation path]);
+        
+        //newFiles is the mainFile
+        for (NSMutableArray *folder in newFiles){
+            NSString *folderName = [[[[[folder objectAtIndex:0]getOriginal]path]lastPathComponent]stringByDeletingPathExtension];
+        
+            NSString *folderPath = [[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", newlocation,folderName]]path];
+            NSLog(@"%@",folderPath);
+            NSFileManager *fileManager= [[NSFileManager alloc]init];
+            BOOL isDir;
+            if(![fileManager fileExistsAtPath:folderPath isDirectory:&isDir]){
+                if(![fileManager createDirectoryAtPath:folderPath withIntermediateDirectories:YES attributes:nil error:NULL])
+                    NSLog(@"Error: Create folder failed %@", folderPath);
+            }else{
+                NSLog(@"Error 2");
+            }
+            
+            NSFileManager *manager = [NSFileManager defaultManager];
+            for (Document* doc in folder){
+                //make a toURL
+                NSString *originalFile = [[[doc getOriginal]path]lastPathComponent];
+                NSString *newFilePath = [NSString stringWithFormat:@"%@/%@",folderPath,originalFile];
+                NSURL *newFileLocation = [NSURL fileURLWithPath:newFilePath];
+//                NSLog(@"%@",newFileLocation);
+                [manager moveItemAtURL:[doc getOriginal] toURL:newFileLocation error:nil ];
+            }
+        }
     }
 
 }
