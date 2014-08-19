@@ -204,14 +204,25 @@
     [panel canCreateDirectories];
     NSInteger clicked = [panel runModal];
     //This runs if the ok button was clicked on the open panel.
+    NSMutableArray *newFiles = [[NSMutableArray alloc]initWithCapacity:10];
     if (clicked == NSFileHandlingPanelOKButton) {
         NSLog(@"%@",[[panel URL]path]);
+        int index = 0;
+        [newFiles addObject:[[NSMutableArray alloc]initWithCapacity:10]];
         for(Document* doc in _documentArray){
+            [[newFiles objectAtIndex:index]addObject:doc];
             NSString *sizeString = [doc getOriginalSize];
             if([sizeString isEqualTo:@"Blank Page"]){
                 NSLog(@"Blank Page");
+                index++;
+                [newFiles addObject:[[NSMutableArray alloc]initWithCapacity:10]];
             }
         }
+//        //newFiles is the mainFile
+//        for (NSMutableArray *folder in newFiles){
+//            
+//        }
     }
+
 }
 @end
