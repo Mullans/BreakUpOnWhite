@@ -223,31 +223,44 @@
         if(![fileManager fileExistsAtPath:[newlocation path] isDirectory:&isDir])
             if(![fileManager createDirectoryAtPath:[newlocation path] withIntermediateDirectories:YES attributes:nil error:NULL])
                 NSLog(@"Error: Create folder failed %@", [newlocation path]);
+        NSString *jpgPath = [NSString stringWithFormat:@"%@/jpg/", newlocation];
+        NSString *tifPath = [NSString stringWithFormat:@"%@/tif/", newlocation];
+
+        NSLog(@"\n%@\n%@",jpgPath,tifPath);
+        BOOL isDir1;
+        if(![fileManager fileExistsAtPath:jpgPath isDirectory:&isDir1])
+            if(![fileManager createDirectoryAtPath:jpgPath withIntermediateDirectories:YES attributes:nil error:NULL])
+                NSLog(@"Error: Create folder failed %@", jpgPath);
+        BOOL isDir2;
+        if(![fileManager fileExistsAtPath:tifPath isDirectory:&isDir2])
+            if(![fileManager createDirectoryAtPath:tifPath withIntermediateDirectories:YES attributes:nil error:NULL])
+                NSLog(@"Error: Create folder failed %@", tifPath);
         
-        //newFiles is the mainFile
+        
         for (NSMutableArray *folder in newFiles){
             NSString *folderName = [[[[[folder objectAtIndex:0]getOriginal]path]lastPathComponent]stringByDeletingPathExtension];
-        
-            NSString *folderPath = [[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", newlocation,folderName]]path];
-            NSLog(@"%@",folderPath);
+            
+            //create subfolders in the two type folders
+            NSString *jpgfolderPath = [[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", jpgPath,folderName]]path];
+            NSString *tiffolderPath = [[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", tifPath,folderName]]path];
+            NSLog(@"\n%@\n%@",jpgfolderPath,tiffolderPath);
             NSFileManager *fileManager= [[NSFileManager alloc]init];
             BOOL isDir;
-            if(![fileManager fileExistsAtPath:folderPath isDirectory:&isDir]){
-                if(![fileManager createDirectoryAtPath:folderPath withIntermediateDirectories:YES attributes:nil error:NULL])
-                    NSLog(@"Error: Create folder failed %@", folderPath);
-            }else{
-                NSLog(@"Error 2");
-            }
-            
-            NSFileManager *manager = [NSFileManager defaultManager];
-            for (Document* doc in folder){
-                //make a toURL
-                NSString *originalFile = [[[doc getOriginal]path]lastPathComponent];
-                NSString *newFilePath = [NSString stringWithFormat:@"%@/%@",folderPath,originalFile];
-                NSURL *newFileLocation = [NSURL fileURLWithPath:newFilePath];
-//                NSLog(@"%@",newFileLocation);
-                [manager moveItemAtURL:[doc getOriginal] toURL:newFileLocation error:nil ];
-            }
+            if(![fileManager fileExistsAtPath:jpgfolderPath isDirectory:&isDir])
+                if(![fileManager createDirectoryAtPath:jpgfolderPath withIntermediateDirectories:YES attributes:nil error:NULL])
+                    NSLog(@"Error: Create folder failed %@", jpgfolderPath);
+            if(![fileManager fileExistsAtPath:jpgfolderPath isDirectory:&isDir])
+                if(![fileManager createDirectoryAtPath:jpgfolderPath withIntermediateDirectories:YES attributes:nil error:NULL])
+                    NSLog(@"Error: Create folder failed %@", jpgfolderPath);
+           
+//            for (Document* doc in folder){
+//                //make a toURL
+//                NSString *originalFile = [[[doc getOriginal]path]lastPathComponent];
+//                NSString *newFilePath = [NSString stringWithFormat:@"%@/%@",folderPath,originalFile];
+//                NSURL *newFileLocation = [NSURL fileURLWithPath:newFilePath];
+////                NSLog(@"%@",newFileLocation);
+//                [fileManager moveItemAtURL:[doc getOriginal] toURL:newFileLocation error:nil ];
+//            }
         }
     }
 
