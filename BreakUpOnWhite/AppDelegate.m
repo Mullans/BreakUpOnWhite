@@ -177,7 +177,7 @@
     _whiteThreshold = [sender integerValue];
     if ([sender integerValue]<240){
         _thresholdText.textColor = [NSColor redColor];
-    }else if([sender integerValue]>254){
+    }else if([sender integerValue]>253){
         _thresholdText.textColor = [NSColor redColor];
     }else{
         _thresholdText.textColor = [NSColor blackColor];
