@@ -10,7 +10,7 @@
 @implementation AppDelegate
 - (IBAction)loadingButton1:(id)sender {
     NSOpenPanel *panel = [NSOpenPanel openPanel];
-    [panel setTitle:@"Choose tif folder"];
+    [panel setTitle:@"Choose TIFF folder"];
     NSArray  *fileTypes = [NSArray arrayWithObjects:@"tif",nil];
     [panel setCanChooseFiles:NO];
     [panel setCanChooseDirectories:YES];
@@ -115,6 +115,7 @@
 }
 
 - (IBAction)splitButton:(id)sender {
+    [_progress startAnimation:self];
     //iterate through _documentArray, looking for blank files (low numbers), and create new folders after each one
     NSSavePanel *panel = [NSSavePanel savePanel];
     [panel setTitle:@"Choose Folder To Save To"];
@@ -167,6 +168,7 @@
             }
         }
     }
+    [_progress stopAnimation:self];
 
 }
 @end
