@@ -185,8 +185,18 @@
         int newThreshold = [[sender stringValue]integerValue];
         if (newThreshold>255){newThreshold = 255;}
         else if(newThreshold<0){newThreshold = 0;}
+        _thresholdText.stringValue = [NSString stringWithFormat:@"%i",newThreshold];
         _whiteThreshold = newThreshold;
+        _stepperValue.integerValue = newThreshold;
+        if (newThreshold<240){
+            _thresholdText.textColor = [NSColor redColor];
+        }else if(newThreshold>253){
+            _thresholdText.textColor = [NSColor redColor];
+        }else{
+            _thresholdText.textColor = [NSColor blackColor];
+        }
     }
+    [_tableView reloadData];
 }
 
 
