@@ -13,7 +13,7 @@
     NSString* originalSize;
 }
 
--(id)initWithOriginal:(NSURL*)input;
+-(id)initWithOriginal:(NSURL*)input threshold:(int)threshold;
 -(NSURL*)getOriginal;
 -(NSString*)getOriginalSize;
 @end

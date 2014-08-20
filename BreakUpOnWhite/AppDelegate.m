@@ -47,7 +47,7 @@
                 }
             }
             if (sentinel){
-                Document *newDocument = [[Document alloc]initWithOriginal:item];
+                Document *newDocument = [[Document alloc]initWithOriginal:item threshold:_whiteThreshold];
                 [_documentArray addObject:newDocument];
             }
         }
@@ -103,6 +103,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    _whiteThreshold = 253;
     _documentArray = [[NSMutableArray alloc] initWithCapacity:10];
     _tableView.dataSource = self;
     _tableView.delegate = self;
@@ -170,5 +171,30 @@
     }
     [_progress stopAnimation:self];
 
+}
+- (IBAction)changeThreshold:(id)sender {
+    _thresholdText.stringValue = [NSString stringWithFormat:@"%li",(long)[sender integerValue]];
+    _whiteThreshold = [sender integerValue];
+    if ([sender integerValue]<240){
+        _thresholdText.textColor = [NSColor redColor];
+    }else if([sender integerValue]>254){
+        _thresholdText.textColor = [NSColor redColor];
+    }else{
+        _thresholdText.textColor = [NSColor blackColor];
+    }
+}
+- (IBAction)restartButton:(id)sender {
+    _documentArray = [[NSMutableArray alloc]initWithCapacity:10];
+    [_tableView reloadData];
+    _whiteThreshold = 253;
+    _thresholdText.stringValue = @"253 (Default)";
+    _stepperValue.integerValue = 253;
+}
+- (IBAction)helpButton:(id)sender {
+    _helpwindow = [[HelpWindow alloc]init];
+}
+- (IBAction)resort:(id)sender {
+    _documentArray = [[NSMutableArray alloc]initWithArray:[Sorter mergeSort:_documentArray options:_sortChoice.indexOfSelectedItem]];
+    [_tableView reloadData];
 }
 @end

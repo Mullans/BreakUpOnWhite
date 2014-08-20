@@ -21,6 +21,8 @@
 		3D7CAF6C199D5EF90003B08F /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7CAF6B199D5EF90003B08F /* Document.m */; };
 		3DCD41A719A296A20078FF68 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 3DCD41A619A296A20078FF68 /* README */; };
 		3DD6028C19A2616F00152A87 /* Sorter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD6028B19A2616F00152A87 /* Sorter.m */; };
+		3DF0C40219A530630096AB89 /* HelpWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF0C40019A530630096AB89 /* HelpWindow.m */; };
+		3DF0C40319A530630096AB89 /* HelpWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF0C40119A530630096AB89 /* HelpWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,9 @@
 		3DCD41A619A296A20078FF68 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		3DD6028A19A2616F00152A87 /* Sorter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sorter.h; sourceTree = "<group>"; };
 		3DD6028B19A2616F00152A87 /* Sorter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sorter.m; sourceTree = "<group>"; };
+		3DF0C3FF19A530630096AB89 /* HelpWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpWindow.h; path = ../HelpWindow.h; sourceTree = "<group>"; };
+		3DF0C40019A530630096AB89 /* HelpWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpWindow.m; path = ../HelpWindow.m; sourceTree = "<group>"; };
+		3DF0C40119A530630096AB89 /* HelpWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HelpWindow.xib; path = ../HelpWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +136,9 @@
 				3DD6028A19A2616F00152A87 /* Sorter.h */,
 				3DD6028B19A2616F00152A87 /* Sorter.m */,
 				3D37A8B5199D20F200BFE8CF /* MainMenu.xib */,
+				3DF0C3FF19A530630096AB89 /* HelpWindow.h */,
+				3DF0C40019A530630096AB89 /* HelpWindow.m */,
+				3DF0C40119A530630096AB89 /* HelpWindow.xib */,
 				3D37A8B8199D20F200BFE8CF /* Images.xcassets */,
 				3D37A8A7199D20F200BFE8CF /* Supporting Files */,
 			);
@@ -245,6 +253,7 @@
 			files = (
 				3DCD41A719A296A20078FF68 /* README in Resources */,
 				3D37A8AB199D20F200BFE8CF /* InfoPlist.strings in Resources */,
+				3DF0C40319A530630096AB89 /* HelpWindow.xib in Resources */,
 				3D37A8B9199D20F200BFE8CF /* Images.xcassets in Resources */,
 				3D37A8B1199D20F200BFE8CF /* Credits.rtf in Resources */,
 				3D37A8B7199D20F200BFE8CF /* MainMenu.xib in Resources */,
@@ -268,6 +277,7 @@
 			files = (
 				3D7CAF6C199D5EF90003B08F /* Document.m in Sources */,
 				3D37A8B4199D20F200BFE8CF /* AppDelegate.m in Sources */,
+				3DF0C40219A530630096AB89 /* HelpWindow.m in Sources */,
 				3DD6028C19A2616F00152A87 /* Sorter.m in Sources */,
 				3D37A8AD199D20F200BFE8CF /* main.m in Sources */,
 			);

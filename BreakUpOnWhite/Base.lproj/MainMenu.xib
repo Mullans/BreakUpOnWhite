@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment defaultVersion="1070" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6185.11"/>
     </dependencies>
     <objects>
@@ -22,9 +23,11 @@
                 <outlet property="scrollView" destination="RnC-4S-DX4" id="SbH-ib-Kaj"/>
                 <outlet property="sortChoice" destination="JeV-ql-HOc" id="rPX-M6-t0H"/>
                 <outlet property="splitButton" destination="7F5-pa-VO9" id="rQj-pz-HNv"/>
+                <outlet property="stepperValue" destination="jG5-eM-YiB" id="uTS-aa-Jkz"/>
                 <outlet property="tableColumn1" destination="eEn-PO-aIE" id="i2C-bx-Cmh"/>
                 <outlet property="tableColumn2" destination="7o7-o8-UB1" id="fh6-pa-gLj"/>
                 <outlet property="tableView" destination="fo0-1T-vJ9" id="cN6-0O-w0J"/>
+                <outlet property="thresholdText" destination="Lw1-Dm-b2e" id="1B1-rm-wr2"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -32,14 +35,14 @@
         <window title="BreakUpOnWhite" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="767" height="576"/>
+            <rect key="contentRect" x="335" y="390" width="767" height="551"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="767" height="576"/>
+                <rect key="frame" x="0.0" y="0.0" width="767" height="551"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IcX-zd-6bm">
-                        <rect key="frame" x="305" y="491" width="160" height="32"/>
+                        <rect key="frame" x="305" y="478" width="160" height="32"/>
                         <buttonCell key="cell" type="push" title="Click To Load TIFFs" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OEd-ff-Rlp">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -49,7 +52,7 @@
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0tJ-go-gUU">
-                        <rect key="frame" x="313" y="527" width="139" height="17"/>
+                        <rect key="frame" x="313" y="514" width="139" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="&lt;NO FILE SELECTED>" id="pCj-nI-wUJ">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -57,7 +60,7 @@
                         </textFieldCell>
                     </textField>
                     <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RnC-4S-DX4">
-                        <rect key="frame" x="20" y="73" width="727" height="380"/>
+                        <rect key="frame" x="20" y="71" width="727" height="380"/>
                         <clipView key="contentView" ambiguous="YES" misplaced="YES" id="GUw-f1-xaP">
                             <rect key="frame" x="0.0" y="17" width="727" height="363"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,7 +153,7 @@
                         </tableHeaderView>
                     </scrollView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HLi-Mk-7nP">
-                        <rect key="frame" x="18" y="461" width="77" height="17"/>
+                        <rect key="frame" x="18" y="459" width="77" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="# Images" id="zpd-OG-InY">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -158,7 +161,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7F5-pa-VO9">
-                        <rect key="frame" x="319" y="25" width="129" height="32"/>
+                        <rect key="frame" x="319" y="23" width="129" height="32"/>
                         <buttonCell key="cell" type="push" title="Split Into Files" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2ZS-3Z-iZw">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -168,7 +171,7 @@
                         </connections>
                     </button>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JeV-ql-HOc">
-                        <rect key="frame" x="18" y="29" width="290" height="26"/>
+                        <rect key="frame" x="18" y="27" width="290" height="26"/>
                         <popUpButtonCell key="cell" type="push" title="Sort By Date Created" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="tcL-uO-Lw9" id="l3Z-NV-Jh1">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
@@ -180,12 +183,59 @@
                                 </items>
                             </menu>
                         </popUpButtonCell>
+                        <connections>
+                            <action selector="resort:" target="Voe-Tx-rLC" id="aif-jn-MVN"/>
+                        </connections>
                     </popUpButton>
                     <progressIndicator fixedFrame="YES" maxValue="100" doubleValue="50" displayedWhenStopped="NO" indeterminate="YES" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="hPc-gQ-qg1">
-                        <rect key="frame" x="236" y="459" width="308" height="20"/>
+                        <rect key="frame" x="236" y="457" width="308" height="20"/>
                     </progressIndicator>
+                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jG5-eM-YiB">
+                        <rect key="frame" x="731" y="456" width="19" height="27"/>
+                        <stepperCell key="cell" continuous="YES" alignment="left" maxValue="255" doubleValue="253" id="eEC-bE-3ES"/>
+                        <connections>
+                            <action selector="changeThreshold:" target="Voe-Tx-rLC" id="vPl-tF-RLH"/>
+                        </connections>
+                    </stepper>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lw1-Dm-b2e">
+                        <rect key="frame" x="606" y="459" width="120" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="253 (Default)" drawsBackground="YES" id="xxN-mm-y5G">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kiu-ZH-9l8">
+                        <rect key="frame" x="551" y="489" width="198" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="White Value Threshold (0-255)" id="hXT-VW-3V5">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8P3-1Z-KIT">
+                        <rect key="frame" x="659" y="23" width="94" height="32"/>
+                        <buttonCell key="cell" type="push" title="Clear All" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Ff-lj-zBp">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="restartButton:" target="Voe-Tx-rLC" id="seV-sU-v9D"/>
+                        </connections>
+                    </button>
+                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TvE-N1-p3I">
+                        <rect key="frame" x="18" y="507" width="25" height="25"/>
+                        <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9e0-wS-XAf">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="helpButton:" target="Voe-Tx-rLC" id="CXg-4U-5mE"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
+            <point key="canvasLocation" x="139.5" y="134.5"/>
         </window>
     </objects>
 </document>

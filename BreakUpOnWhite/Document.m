@@ -7,11 +7,9 @@
 //
 
 #import "Document.h"
-#define WHITE_THRESHOLD 253
-//max = 255, the closer to this, the whiter the image
 @implementation Document
 
--(id)initWithOriginal:(NSURL *)input{
+-(id)initWithOriginal:(NSURL *)input threshold:(int)threshold{
     original = input;
     NSFileManager *man = [NSFileManager defaultManager];
     NSDictionary *attrs = [man attributesOfItemAtPath: [input path] error: NULL];
@@ -49,7 +47,8 @@
         redTotal = redTotal/total;
         greenTotal = greenTotal/total;
         blueTotal = blueTotal/total;
-        if ((redTotal+blueTotal+greenTotal)/3 > WHITE_THRESHOLD){
+        NSLog(@"%li",(redTotal+blueTotal+greenTotal)/3);
+        if ((redTotal+blueTotal+greenTotal)/3 > threshold){
             originalSize = @"Blank Page";
         }
     }
