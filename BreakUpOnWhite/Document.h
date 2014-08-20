@@ -11,9 +11,11 @@
 @interface Document : NSObject{
     NSURL *original;
     NSString* originalSize;
+    int rgb;
 }
 
 -(id)initWithOriginal:(NSURL*)input threshold:(int)threshold;
 -(NSURL*)getOriginal;
 -(NSString*)getOriginalSize;
+-(int)getRGB;
 @end

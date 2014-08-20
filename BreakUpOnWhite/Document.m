@@ -47,10 +47,7 @@
         redTotal = redTotal/total;
         greenTotal = greenTotal/total;
         blueTotal = blueTotal/total;
-        NSLog(@"%li",(redTotal+blueTotal+greenTotal)/3);
-        if ((redTotal+blueTotal+greenTotal)/3 > threshold){
-            originalSize = @"Blank Page";
-        }
+        rgb = (redTotal+blueTotal+greenTotal)/3;
     }
     
     return self;
@@ -62,5 +59,8 @@
 
 -(NSString *)getOriginalSize{
     return originalSize;
+}
+-(int)getRGB{
+    return rgb;
 }
 @end

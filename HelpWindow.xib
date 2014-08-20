@@ -15,14 +15,14 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="884" height="526"/>
+            <rect key="contentRect" x="196" y="240" width="884" height="508"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="884" height="526"/>
+                <rect key="frame" x="0.0" y="0.0" width="884" height="508"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fF-UP-b0x">
-                        <rect key="frame" x="235" y="455" width="629" height="51"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fF-UP-b0x">
+                        <rect key="frame" x="235" y="437" width="629" height="51"/>
                         <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" drawsBackground="YES" id="YTQ-xn-GDx">
                             <font key="font" metaFont="system"/>
                             <string key="title">When loading TIFFs, the program will only take one directory at a time, but you can use the button multiple times to get multiple directories. All of the loaded files will be sorted each time based on the sorting choice.</string>
@@ -30,17 +30,17 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DHa-fc-cEv">
-                        <rect key="frame" x="235" y="345" width="629" height="102"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DHa-fc-cEv">
+                        <rect key="frame" x="235" y="344" width="629" height="85"/>
                         <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" drawsBackground="YES" id="U5U-ry-xTl">
                             <font key="font" metaFont="system"/>
-                            <string key="title">The White Value Threshold is the indicator of what the cut-off is for a "white" image. The suggested number is 253, but it can be changed. The number will turn red if you leave the "safe" range. The resulting number is calculated based on the average rgb value of each image. Changing the white threshold will not effect images that have already been loaded. To reidentify images that have been already loaded, it is necessary to use the restart button and load the images again with the new settings.</string>
+                            <string key="title">The White Value Threshold is the indicator of what the cut-off is for a "white" image. The suggested number is 253, but it can be changed. The number will turn red if you leave the "safe" range. The resulting number is calculated based on the average rgb value of each image. If the average rgb is below the threshold, the size column will change to show "Blank Page" and will turn blue.</string>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FuW-vx-QbY">
-                        <rect key="frame" x="235" y="286" width="629" height="51"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FuW-vx-QbY">
+                        <rect key="frame" x="235" y="285" width="629" height="51"/>
                         <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" drawsBackground="YES" id="NaS-kq-rJ5">
                             <font key="font" metaFont="system"/>
                             <string key="title">The table will display the file path of each uploaded image as well as the file size of the uploaded image. If the file is identified as a blank image, the size column will be replaced by the words "Blank Page" and the color of the text will be blue.</string>
@@ -48,26 +48,26 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e9o-DX-fEh">
-                        <rect key="frame" x="235" y="176" width="629" height="102"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e9o-DX-fEh">
+                        <rect key="frame" x="235" y="175" width="629" height="102"/>
                         <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" drawsBackground="YES" id="Aq7-M1-8Vm">
                             <font key="font" metaFont="system"/>
-                            <mutableString key="title">At the bottom is a selector for sorting choices. The default is to sort by date created, but you can also sort by file size, or not sort at all. In the case of the latter, the files are sorted by how they are taken in by the system, which is simmilar to sort by name, but not exactly the same in terms of how it treats numerical sorting. Changing the sort option will resort the input images without the need for reloading them, but if they have already been sorted then choosing "Don't Sort" will not change anything.</mutableString>
+                            <string key="title">At the bottom is a selector for sorting choices. The default is to sort by date created, but you can also sort by file size, or not sort at all. In the case of the latter, the files are sorted by how they are taken in by the system, which is simmilar to sort by name, but not exactly the same in terms of how it treats numerical sorting. Changing the sort option will resort the input images without the need for reloading them, but if they have already been sorted then choosing "Don't Sort" will not change anything.</string>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j4Z-Fe-WOK">
-                        <rect key="frame" x="235" y="66" width="629" height="102"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j4Z-Fe-WOK">
+                        <rect key="frame" x="235" y="65" width="629" height="102"/>
                         <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" drawsBackground="YES" id="Wmz-9X-kea">
                             <font key="font" metaFont="system"/>
-                            <mutableString key="title">The split into files button will split the input images into separate folders. The program will ask you for a destination and folder name, and this will be the folder that these subfolders will be created in. The files will be split based on the ordering displayed in the table, and the splits will occur immediately after each blank page. If there are multiple blank pages consecutively, only the first will be moved, and the rest will be left in the original file. The folders will be named after the first image in each set, and the images will be moved (rather than copied) into the new folders.</mutableString>
+                            <string key="title">The split into files button will split the input images into separate folders. The program will ask you for a destination and folder name, and this will be the folder that these subfolders will be created in. The files will be split based on the ordering displayed in the table, and the splits will occur immediately after each blank page. If there are multiple blank pages consecutively, only the first will be moved, and the rest will be left in the original file. The folders will be named after the first image in each set, and the images will be moved (rather than copied) into the new folders.</string>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3qe-IG-fNp">
-                        <rect key="frame" x="233" y="24" width="631" height="34"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3qe-IG-fNp">
+                        <rect key="frame" x="233" y="23" width="631" height="34"/>
                         <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" title="The clear all button clears all selected images from the table, as well as resets the white threshold to default." drawsBackground="YES" id="Hf0-R2-RV7">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -75,23 +75,15 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwf-3z-M1i">
-                        <rect key="frame" x="18" y="467" width="211" height="19"/>
+                        <rect key="frame" x="18" y="449" width="211" height="19"/>
                         <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Loading Images" id="wjV-cP-mHS">
                             <font key="font" metaFont="system" size="16"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sRR-du-Mwe">
-                        <rect key="frame" x="18" y="387" width="211" height="19"/>
-                        <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="White Value Threshold" id="fPE-dl-8Kh">
-                            <font key="font" metaFont="system" size="16"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4iG-QS-ipz">
-                        <rect key="frame" x="18" y="302" width="211" height="19"/>
+                        <rect key="frame" x="18" y="301" width="211" height="19"/>
                         <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Table View" id="LwP-PR-8jP">
                             <font key="font" metaFont="system" size="16"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -99,7 +91,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KSA-Km-VYR">
-                        <rect key="frame" x="18" y="218" width="211" height="19"/>
+                        <rect key="frame" x="18" y="217" width="211" height="19"/>
                         <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sorting Selector" id="zbx-Kr-FJw">
                             <font key="font" metaFont="system" size="16"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -107,7 +99,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DRk-vf-0La">
-                        <rect key="frame" x="18" y="108" width="211" height="19"/>
+                        <rect key="frame" x="18" y="107" width="211" height="19"/>
                         <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Split Into Files" id="9ku-Nm-rbx">
                             <font key="font" metaFont="system" size="16"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -115,8 +107,16 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lGw-aw-hx2">
-                        <rect key="frame" x="18" y="32" width="211" height="19"/>
+                        <rect key="frame" x="18" y="31" width="211" height="19"/>
                         <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Clear All Button" id="be8-OT-bcO">
+                            <font key="font" metaFont="system" size="16"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sRR-du-Mwe">
+                        <rect key="frame" x="18" y="377" width="211" height="19"/>
+                        <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="White Value Threshold" id="fPE-dl-8Kh">
                             <font key="font" metaFont="system" size="16"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -127,7 +127,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="310" y="47"/>
+            <point key="canvasLocation" x="310" y="38"/>
         </window>
     </objects>
 </document>

@@ -89,13 +89,10 @@
     }else if([tableColumn.identifier isEqual:@"2"]){
         result.textField.stringValue = [newDocument getOriginalSize];
         result.textField.alignment = NSRightTextAlignment;
-    }
-    if ([result.textField.stringValue isEqualTo:@"Missing File"]){
-        [result setBackgroundStyle:NSBackgroundStyleDark];
-        [result.textField setTextColor:[NSColor redColor]];
-    }
-    if ([result.textField.stringValue rangeOfString:@"K"].location != NSNotFound||[result.textField.stringValue isEqualTo:@"Blank Page"]) {
-        [result.textField setTextColor:[NSColor blueColor]];
+        if([newDocument getRGB]>_whiteThreshold){
+            [result.textField setTextColor:[NSColor blueColor]];
+            result.textField.stringValue = @"Blank Page";
+        }
     }
     return result;
 }
@@ -130,8 +127,7 @@
         [newFiles addObject:[[NSMutableArray alloc]initWithCapacity:10]];
         for(Document* doc in _documentArray){
             [[newFiles objectAtIndex:index]addObject:doc];
-            NSString *sizeString = [doc getOriginalSize];
-            if([sizeString isEqualTo:@"Blank Page"]){
+            if([doc getRGB]>_whiteThreshold){
                 index++;
                 [newFiles addObject:[[NSMutableArray alloc]initWithCapacity:10]];
             }
@@ -182,7 +178,18 @@
     }else{
         _thresholdText.textColor = [NSColor blackColor];
     }
+    [_tableView reloadData];
 }
+- (IBAction)textChange:(id)sender {
+    if([[NSScanner scannerWithString:[sender stringValue]] scanInt:nil]){
+        int newThreshold = [[sender stringValue]integerValue];
+        if (newThreshold>255){newThreshold = 255;}
+        else if(newThreshold<0){newThreshold = 0;}
+        _whiteThreshold = newThreshold;
+    }
+}
+
+
 - (IBAction)restartButton:(id)sender {
     _documentArray = [[NSMutableArray alloc]initWithCapacity:10];
     [_tableView reloadData];

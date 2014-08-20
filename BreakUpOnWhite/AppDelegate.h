@@ -10,7 +10,7 @@
 #import "Document.h"
 #import "Sorter.h"
 #import "HelpWindow.h"
-@interface AppDelegate : NSObject <NSApplicationDelegate,NSTableViewDataSource,NSTableViewDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate,NSTableViewDataSource,NSTableViewDelegate,NSTextFieldDelegate>
 @property (weak) IBOutlet NSTextField *buttonLabel1;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (assign) IBOutlet NSWindow *window;
