@@ -20,36 +20,41 @@
     
     NSInteger clicked = [panel runModal];
     //This runs if the ok button was clicked on the open panel.
-    [_progress startAnimation:self];
     if (clicked == NSFileHandlingPanelOKButton) {
-        
-        //This section sets and resizes the label to reflect the users choice.
-        [_buttonLabel1  setStringValue:[[panel URL]path]];
-        [_buttonLabel1 sizeToFit];
-        [_buttonLabel1 setFrameOrigin:CGPointMake(self.window.frame.size.width/2-_buttonLabel1.frame.size.width/2, _buttonLabel1.frame.origin.y)];
-        
-        //This gets all of the files from the selected directory, and skips hidden files.
-        NSArray* dirs = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:[panel URL] includingPropertiesForKeys:[NSArray arrayWithObject:NSURLNameKey] options:NSDirectoryEnumerationSkipsHiddenFiles error:nil];
-        for(NSURL* item in dirs){
-            //check to see if there is a document of the same name in original
-            BOOL sentinel = YES;
-            if (![[item pathExtension] isEqual:@"tif"]){
-                continue;
-            }
-            for(Document *doc in _documentArray){
-                @try{
-                    if([[item path] isEqualToString:[[doc getOriginal]path]]){
-                        sentinel = NO;
-                        break;
-                    }
-                }@catch(NSException *exception){
-                    NSLog(@"Error 2");
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self loadImages: [panel URL]];
+        });
+    }
+}
+-(void)loadImages: (NSURL*)panelURL{
+    [_progress startAnimation:self];
+
+    //This section sets and resizes the label to reflect the users choice.
+    [_buttonLabel1  setStringValue:[panelURL path]];
+    [_buttonLabel1 sizeToFit];
+    [_buttonLabel1 setFrameOrigin:CGPointMake(self.window.frame.size.width/2-_buttonLabel1.frame.size.width/2, _buttonLabel1.frame.origin.y)];
+    
+    //This gets all of the files from the selected directory, and skips hidden files.
+    NSArray* dirs = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:panelURL includingPropertiesForKeys:[NSArray arrayWithObject:NSURLNameKey] options:NSDirectoryEnumerationSkipsHiddenFiles error:nil];
+    for(NSURL* item in dirs){
+        //check to see if there is a document of the same name in original
+        BOOL sentinel = YES;
+        if (![[item pathExtension] isEqual:@"tif"]){
+            continue;
+        }
+        for(Document *doc in _documentArray){
+            @try{
+                if([[item path] isEqualToString:[[doc getOriginal]path]]){
+                    sentinel = NO;
+                    break;
                 }
+            }@catch(NSException *exception){
+                NSLog(@"Error 2");
             }
-            if (sentinel){
-                Document *newDocument = [[Document alloc]initWithOriginal:item threshold:_whiteThreshold];
-                [_documentArray addObject:newDocument];
-            }
+        }
+        if (sentinel){
+            Document *newDocument = [[Document alloc]initWithOriginal:item threshold:_whiteThreshold];
+            [_documentArray addObject:newDocument];
         }
     }
     _jpgCount.stringValue = [NSString stringWithFormat:@"%lu Images",(unsigned long)[_documentArray count]];
@@ -58,9 +63,7 @@
     [_progress stopAnimation:self];
 }
 
-
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    
     return _documentArray.count;
 }
 
