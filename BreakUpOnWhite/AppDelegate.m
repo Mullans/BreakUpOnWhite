@@ -204,7 +204,10 @@
 
 
 - (IBAction)restartButton:(id)sender {
-    _documentArray = [[NSMutableArray alloc]initWithCapacity:10];
+//    _documentArray = [[NSMutableArray alloc]initWithCapacity:10];
+    while ([_documentArray count]>0){
+        [_documentArray removeObjectAtIndex:0];
+    }
     [_tableView reloadData];
     _whiteThreshold = 253;
     _thresholdText.stringValue = @"253 (Default)";
